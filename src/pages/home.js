@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Card from "../component/card"
 import {getAllProduct} from "../actions/productActions"
+import {createProduct} from "../actions/productActions"
 
 const Home = () => {
 
@@ -13,8 +14,8 @@ const Home = () => {
             const res = await fetch('https://fakestoreapi.com/products')
             const data = await res.json()
             console.log(data)
-
             dispatch(getAllProduct(data))
+            dispatch(createProduct(data))
         }
         allProduct()
     }, [])
